@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+    <link rel="stylesheet" href="{% static '/css/homepage.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+      <!-- navbar -->
+    <nav class="navbar sticky-top navbar-custom navbar-toggleable-md navbar-expand-md bg-success navbar-inverse">
+        <a href="/">
+        <img src="{% static 'images/Logo.png' %}"
+            height="40px"
+            width="40px"
+            />
+        </a>
+        <div class="container">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="/">Cyber Security Explained</a>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="navbar-nav">
+                    <!--a class="nav-item nav-link" href="/TopFive">Top Five</a-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-item nav-link" href="/TopFive" style="display:inline-block; padding-right:0;">Top Five</a>
+                        <a class="nav-link dropdown-toggle dropdown-toggle-split" style="display:inline-block;padding-right:5;padding-left:0;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/TopFive">Top Five</a>
+                          <div class="dropdown-divider">-------------</div>
+                          <a class="dropdown-item" href="{% url 'phishing' %}">Phishing</a>
+                          <a class="dropdown-item" href="{% url 'mal/ransomware' %}">Mal/Ransomware</a>
+                          <a class="dropdown-item" href="{% url 'insider threats' %}">Insider Threats</a>
+                          <a class="dropdown-item" href="{% url 'ddos' %}">DDOS</a>
+                          <a class="dropdown-item" href="{% url 'iot/sql' %}">SQL/IOT</a>
+                        </div>
+                      </li>
+                    <!--<a class="nav-item nav-link" href="/OperationalSecurity">Operational Security</a>-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-item nav-link" href="/OperationalSecurity" style="display:inline-block; padding-right:0;">Operational Security</a>
+                        <a class="nav-link dropdown-toggle dropdown-toggle-split" style="display:inline-block;padding-right:5;padding-left:0;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/OperationalSecurity">Operational Security</a>
+                          <div class="dropdown-divider">-------------</div>
+                          <a class="dropdown-item" href="{% url 'dirbuster' %}">Dirbuster</a>
+                          <a class="dropdown-item" href="{% url 'stegnography' %}">Steganography</a>
+                        </div>
+                      </li>
+                    <!--a class="nav-item nav-link" href="/Networks">Networks</a-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-item nav-link" href="/Networks" style="display:inline-block; padding-right:0;">Networks</a>
+                        <a class="nav-link dropdown-toggle dropdown-toggle-split" style="display:inline-block;padding-right:5;padding-left:0;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/Networks">Networks</a>
+                          <div class="dropdown-divider">-------------</div>
+                          <a class="dropdown-item" href="{% url 'wireshark' %}">Wireshark</a>
+                          <a class="dropdown-item" href="{% url 'wifipine' %}">WifiPineapple</a>
+                        </div>
+                    </li>
+                    <!--a class="nav-item nav-link" href="/Cryptography">Cryptography</a-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-item nav-link" href="/Cryptography" style="display:inline-block; padding-right:0;">Cryptography</a>
+                        <a class="nav-link dropdown-toggle dropdown-toggle-split" style="display:inline-block;padding-right:5;padding-left:0;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Cryptography">Cryptography</a>
+                        <div class="dropdown-divider">-------------</div>
+                        <a class="dropdown-item" href="{% url 'hashcat' %}">Hashcat</a>
+                        <a class="dropdown-item" href="{% url 'john' %}">John-the-Ripper</a>
+                      </div>
+                    </li>
+                    <a class="nav-item nav-link" href="/CostBenefit">Cost/Benefit</a>
+                    <a class="nav-item nav-link" href="/Resources">Resources</a>
+                </div>
+            </div>
+        </div>
+        <form class="d-flex" method="post"
+        action="{% url 'Search' %}">
+            {% csrf_token %}
+            <input class="form-control me-2"
+            type="search" placeholder="
+            Search" aria-label="Search"  
+            style="padding:0px;margin-right:10px;
+            margin-left:10px;font-size:15px;
+            text-align:left;width:145px;height:30px;margin-top:5px;"
+            name="searched">
+            <button class="btn
+            btn-primary" type="
+            submit" style="float:right;padding:5px;margin-right:10px;height:30px;margin-top:5px;">Search</button>
+        </form>
+    </nav>
+        {% block title %}
+        <title></title>
+        {% endblock %}
+
+        <div id="homepageLeftImage">
+            <img src="{% static 'images/SideBanner3.gif' %}"
+            class="stretch"
+            />
+        </div>
+
+        <div id="homepageRightImage">
+            <img src="{% static 'images/SideBanner3.gif' %}"
+            class="stretch"
+            />
+        </div>
+
+        <div id="content", name="content">
+            {% block content %}
+            {% endblock%}
+        </div>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <div id="script", name="script">
+            {% block script %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

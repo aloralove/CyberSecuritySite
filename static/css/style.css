@@ -1,0 +1,4 @@
+$.organicTabs.defaultOptions = {
+    "speed": 300,
+    "param": "tab"
+};

@@ -1,0 +1,40 @@
+html,body { 
+    background-color:black;
+    color:white;
+    margin:0;
+}
+
+#homepageLeftImage {
+    width: 8vw;
+    height: 100%;
+    left:0;
+    position: fixed;
+    bottom: 0px;
+    padding-bottom:0;
+
+}
+
+#homepageRightImage {
+    width: 8vw;
+    height: 100%;
+    right:0;
+    position: fixed;
+    bottom: 0px;
+    padding-bottom:0;
+}
+
+#homepageText {
+    text-align: center;
+}
+
+#homepageParagraph {
+    text-align: left;
+    border: 10px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.stretch {
+    width: 8vw;
+    height: 100%;
+}
